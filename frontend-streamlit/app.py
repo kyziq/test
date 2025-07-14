@@ -100,7 +100,7 @@ if "messages" not in st.session_state:
 
 \nSamples:
 "Is there any outlets in Petaling Jaya?"
-"I want to know more about Zus Mug?"
+"I want to know more about Zus Mug."
 "What time does Zus Coffee SS2 open?"
 "Calculate 2 + 3"
 """}
@@ -145,10 +145,11 @@ def handle_submit():
 
 # Chat input
 st.text_input(
-    label="",
+    label="Chat input",
     key="user_input",
     placeholder="Ask me anything...",
-    on_change=handle_submit
+    on_change=handle_submit,
+    label_visibility="collapsed"
 )
 
 async def process_message(message: str) -> str:
@@ -228,7 +229,7 @@ async def process_message(message: str) -> str:
         
         # Default response
         return ("I'm not sure how to help with that. I can:\n"
-                "• Find Zus Coffee outlets near you\n"
+                "• Find Zus Coffee outlets\n"
                 "• Show you our menu and products\n"
                 "• Help with calculations for your order\n\n"
                 "Could you please try rephrasing your question?")

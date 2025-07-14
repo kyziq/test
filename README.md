@@ -6,6 +6,7 @@
 
 - Python 3.8 or higher
 - pip (Python package installer)
+- A Groq API key (for LLM access)
 
 ### Setting Up Virtual Environment
 
@@ -29,11 +30,27 @@ On Windows:
 .\venv\Scripts\activate
 ```
 
-3. Install dependencies:
+3. Install dependencies on frontend and backend:
 
 ```bash
+cd backend-fastapi
 pip install -r requirements.txt
 ```
+
+```bash
+cd frontend-streamlit
+pip install -r requirements.txt
+```
+
+4. Set up environment variables:
+
+Create a `.env` file in the root directory with the following content:
+
+```env
+GROQ_API_KEY=your_groq_api_key_here
+```
+
+Replace `your_groq_api_key_here` with your actual Groq API key.
 
 ### Running the Application
 
@@ -42,7 +59,7 @@ pip install -r requirements.txt
 2. Start the FastAPI backend server:
 
 ```bash
-cd fastapi-backend
+cd backend-fastapi
 uvicorn main:app --reload
 ```
 
@@ -51,22 +68,11 @@ The API will be available at `http://localhost:8000`
 3. In a new terminal, start the Streamlit app:
 
 ```bash
+cd frontend-streamlit
 streamlit run app.py
 ```
 
 The chat interface will open in your browser at `http://localhost:8501`
-
-### Using the Assistant
-
-Once both servers are running, you can:
-
-1. Open the Streamlit app in your browser
-2. Start chatting with the assistant
-3. Try sample questions like:
-   - "Is there any outlets in Petaling Jaya?"
-   - "I want to know more about Zus Mug?"
-   - "What time does Zus Coffee SS2 open?"
-   - "Calculate 2 + 3"
 
 ### Development Notes
 
