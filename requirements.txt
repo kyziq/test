@@ -5,3 +5,4 @@ pytest
 langchain-core
 langchain-community
 httpx
+streamlit
