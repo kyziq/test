@@ -7,6 +7,7 @@ from pydantic import BaseModel, Field
 from typing import List, Optional, Literal
 from sqlalchemy.orm import Session
 from sqlalchemy import text
+import json
 
 from utils.database import get_db, Outlet
 from utils.vector_store import vector_store
@@ -80,6 +81,7 @@ class OutletResponse(BaseModel):
     address: str
     opening_time: str
     closing_time: str
+    services: List[str]
 
 @app.post("/outlets")
 async def query_outlets(query: OutletQuery, db: Session = Depends(get_db)):
@@ -101,7 +103,8 @@ async def query_outlets(query: OutletQuery, db: Session = Depends(get_db)):
                         "name": outlet.name,
                         "address": outlet.address,
                         "opening_time": outlet.opening_time,
-                        "closing_time": outlet.closing_time
+                        "closing_time": outlet.closing_time,
+                        "services": outlet.get_services() if hasattr(outlet, 'get_services') else json.loads(outlet.services) if outlet.services else []
                     }
                     for outlet in outlets
                 ],

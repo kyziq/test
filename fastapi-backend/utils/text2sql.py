@@ -18,7 +18,8 @@ CREATE TABLE outlets (
     name TEXT,
     address TEXT,
     opening_time TEXT,
-    closing_time TEXT
+    closing_time TEXT,
+    services TEXT  -- JSON string array
 );
 """
         # Initialize Groq
@@ -39,6 +40,7 @@ Rules:
 2. Return a valid SQLite query
 3. For text searches, use LIKE with wildcards
 4. For time comparisons, compare as strings
+5. For services, use json_extract() and json_each() for SQLite array handling
 
 Example queries:
 Q: "Show me outlets in Bangsar"
@@ -49,6 +51,12 @@ A: SELECT * FROM outlets WHERE closing_time > '20:00';
 
 Q: "Find outlets in Petaling Jaya"
 A: SELECT * FROM outlets WHERE address LIKE '%Petaling Jaya%';
+
+Q: "Which outlets offer dine-in service?"
+A: SELECT * FROM outlets WHERE json_extract(services, '$') LIKE '%Dine-in%';
+
+Q: "Show me outlets with delivery service"
+A: SELECT * FROM outlets WHERE json_extract(services, '$') LIKE '%delivery%';
 
 Generate SQL for this query: {query}
 

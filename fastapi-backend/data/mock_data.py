@@ -6,22 +6,32 @@ Mock data for testing the API endpoints.
 # https://zuscoffee.com/category/store/kuala-lumpur-selangor/
 MOCK_OUTLETS = [
     {
-        "name": "ZUS Coffee SS2",
-        "address": "No.5, Jalan SS2/67, SS2, 47300 Petaling Jaya, Selangor",
+        "name": "ZUS Coffee - SS2",
+        "address": "5, Jalan SS 2/67, SS 2, 47300 Petaling Jaya, Selangor",
         "opening_time": "07:00",
         "closing_time": "21:40",
+        "services": ["Dine-in", "Takeaway", "No-contact delivery"],
     },
     {
-        "name": "ZUS Coffee Damansara Utama",
-        "address": "4-G (Ground Floor), Jalan SS21/39, Damansara Utama, 47400 Petaling Jaya, Selangor",
+        "name": "ZUS Coffee - Uptown Damansara",
+        "address": "44-G (Ground Floor, Jalan SS21/39, Damansara Utama, 47400 Petaling Jaya, Selangor",
         "opening_time": "07:00",
         "closing_time": "10:40",
+        "services": ["Dine-in", "Takeaway", "No-contact delivery"],
     },
     {
-        "name": "ZUS Coffee Menara UOA Bangsar",
+        "name": "ZUS Coffee - Menara UOA Bangsar",
         "address": "Lot LGF-8, Lower Ground Floor, 5, Jalan Bangsar Utama 1, Bangsar, 59000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur",
         "opening_time": "07:30",
         "closing_time": "19:40",
+        "services": ["Dine-in", "Takeaway", "No-contact delivery"],
+    },
+    {
+        "name": "ZUS Coffee - M3 Shopping Mall",
+        "address": "GK-10a & GK-10b, Jln Madrasah, Taman Melati, 53100 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur",
+        "opening_time": "10:00",
+        "closing_time": "21:40",
+        "services": ["Dine-in", "Takeaway"],
     }
 ]
 
